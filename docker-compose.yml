@@ -1,0 +1,16 @@
+#example docker compose for Github.
+services:
+  cookie-exporter:
+    build: .
+    container_name: cookie_exporter
+    restart: "no"
+    volumes:
+      # Browser profile persistence (logins are saved here)
+      - ./browser-data-cookies:/browser-data-cookies
+      # Output directory for the exported txt/json files
+      - ./cookies:/cookies:rslave
+      #ensure sites.txt exists. see sites.txt.example
+      - ./sites.txt:/app/sites.txt:ro
+    ports:
+      - 3011:3011  # cookies VNC
+
