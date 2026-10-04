@@ -1,0 +1,3 @@
+This is what I'd put in crontab for a periodic cookie export. Use crontab -e as root.
+
+0 */3 * * * cd /path/to/docker-composeanddockerfile && docker compose run --rm cookie-exporter >> /var/log/cookie-export.log 2>&1

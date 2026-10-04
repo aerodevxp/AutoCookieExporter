@@ -1,0 +1,1 @@
+docker compose run --rm --service-ports cookie-exporter bash -c "Xvfb :99 -screen 0 1280x800x24 & sleep 2 && x11vnc -display :99 -forever -bg && websockify --web /usr/share/novnc/ 3011 localhost:5900 & export DISPLAY=:99 && node cookie-exporter.js"
